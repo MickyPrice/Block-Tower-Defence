@@ -1,9 +1,11 @@
 package me.mickydoesmc.btd.blocktowerdefense.Events;
 
+import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class BTDTickEvent extends Event {
+public class BalloonSpawnEvent extends Event {
+
     private static final HandlerList handlers = new HandlerList();
     @Override
     public HandlerList getHandlers() {
@@ -12,5 +14,14 @@ public class BTDTickEvent extends Event {
     public static HandlerList getHandlerList() {
         return handlers;
     }
-    public BTDTickEvent() { }
+
+    private final Location location;
+
+    public BalloonSpawnEvent(Location location) {
+        this.location = location;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
 }
