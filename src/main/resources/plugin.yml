@@ -1,0 +1,8 @@
+name: BlockTowerDefense
+version: ${project.version}
+main: me.mickydoesmc.btd.blocktowerdefense.BlockTowerDefense
+api-version: 1.13
+prefix: BTD
+authors: [Mickydoesmc]
+description: A Minecraft Minigame based off the Balloons Tower Defense Game
+website: https://michaelprice.co.nz
