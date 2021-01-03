@@ -4,5 +4,6 @@ public enum BalloonType {
     RED,
     BLUE,
     GREEN,
-    ORANGE
+    ORANGE,
+    CERAMIC
 }

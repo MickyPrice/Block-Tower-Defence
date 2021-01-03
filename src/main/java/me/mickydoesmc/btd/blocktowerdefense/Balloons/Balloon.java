@@ -1,6 +1,7 @@
 package me.mickydoesmc.btd.blocktowerdefense.Balloons;
 
 import me.mickydoesmc.btd.blocktowerdefense.BlockTowerDefense;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.ArmorStand;
@@ -62,8 +63,12 @@ public class Balloon {
     }
 
     public void popBalloon() {
-        if (getChildBalloon() != null) {
-            BalloonUtils.spawnBalloonBasedOffType(getChildBalloon(), getLocation());
+        if (getHealth() > 1) {
+            BalloonUtils.spawnBalloonBasedOffType(getType(), getLocation(), getHealth() -1);
+        } else {
+            if (getChildBalloon() != null) {
+                BalloonUtils.spawnBalloonBasedOffType(getChildBalloon(), getLocation(), 0);
+            }
         }
         BlockTowerDefense.getBalloons().remove(this);
     }
@@ -81,24 +86,32 @@ public class Balloon {
         entity.setCanTick(false);
         entity.setInvisible(true);
         entity.setInvulnerable(true);
+        entity.setCustomName(ChatColor.RED + "" + getHealth() + "/" + getMaxHealth() + " HEALTH");
+        if(getHealth() > 1) {
+            entity.setCustomNameVisible(true);
+        }
         BlockTowerDefense.getBalloons().add(this);
         setBalloonEntity(entity);
     }
-    public void spawn(Location location) {
-        ArmorStand entity = getLocation().getWorld().spawn(location, ArmorStand.class);
-        entity.setDisabledSlots(EquipmentSlot.HEAD);
-        entity.setItem(EquipmentSlot.HEAD, new ItemStack(getMaterial()));
-        entity.setSmall(false);
-        entity.setGravity(false);
-        entity.setArms(false);
-        entity.setMarker(false);
-        entity.setCanMove(false);
-        entity.setCanTick(false);
-        entity.setInvisible(true);
-        entity.setInvulnerable(true);
-        BlockTowerDefense.getBalloons().add(this);
-        setBalloonEntity(entity);
-    }
+//    public void spawn(Location location) {
+//        ArmorStand entity = getLocation().getWorld().spawn(location, ArmorStand.class);
+//        entity.setDisabledSlots(EquipmentSlot.HEAD);
+//        entity.setItem(EquipmentSlot.HEAD, new ItemStack(getMaterial()));
+//        entity.setSmall(false);
+//        entity.setGravity(false);
+//        entity.setArms(false);
+//        entity.setMarker(false);
+//        entity.setCanMove(false);
+//        entity.setCanTick(false);
+//        entity.setInvisible(true);
+//        entity.setInvulnerable(true);
+//        entity.setCustomName(ChatColor.RED + "" + getMaxHealth());
+//        if(getMaxHealth() > 1) {
+//            entity.setCustomNameVisible(true);
+//        }
+//        BlockTowerDefense.getBalloons().add(this);
+//        setBalloonEntity(entity);
+//    }
 
     public Location getLocation() {
         return location;

@@ -1,9 +1,6 @@
 package me.mickydoesmc.btd.blocktowerdefense.Listeners;
 
-import me.mickydoesmc.btd.blocktowerdefense.Balloons.Balloon;
-import me.mickydoesmc.btd.blocktowerdefense.Balloons.BalloonType;
-import me.mickydoesmc.btd.blocktowerdefense.Balloons.BlueBalloon;
-import me.mickydoesmc.btd.blocktowerdefense.Balloons.RedBalloon;
+import me.mickydoesmc.btd.blocktowerdefense.Balloons.*;
 import me.mickydoesmc.btd.blocktowerdefense.BlockTowerDefense;
 import me.mickydoesmc.btd.blocktowerdefense.Events.BalloonSpawnEvent;
 import org.bukkit.Bukkit;
@@ -32,6 +29,24 @@ public class BalloonSpawn implements Listener {
                 balloon.spawn();
                 break;
             }
+            case GREEN: {
+                Balloon balloon = new GreenBalloon();
+                balloon.setLocation(event.getLocation());
+                balloon.spawn();
+                break;
+            }
+            case ORANGE: {
+                Balloon balloon = new OrangeBalloon();
+                balloon.setLocation(event.getLocation());
+                balloon.spawn();
+                break;
+            }
+            case CERAMIC: {
+                Balloon balloon = new CeramicBalloon();
+                balloon.setLocation(event.getLocation());
+                balloon.spawn();
+                break;
+            }
             default: {
                 Bukkit.broadcastMessage(ChatColor.RED + "BALLOON TYPE " + ChatColor.DARK_RED + event.getType().toString() + ChatColor.RED + " NOT ADDED YET");
                 break;
@@ -49,6 +64,18 @@ public class BalloonSpawn implements Listener {
             if (event.getItem().getType() == Material.BLUE_DYE) {
                 event.setCancelled(true);
                 Bukkit.getPluginManager().callEvent(new BalloonSpawnEvent(event.getClickedBlock().getLocation().clone().add(0.5,1,0.5), BalloonType.BLUE));
+            }
+            if (event.getItem().getType() == Material.GREEN_DYE) {
+                event.setCancelled(true);
+                Bukkit.getPluginManager().callEvent(new BalloonSpawnEvent(event.getClickedBlock().getLocation().clone().add(0.5,1,0.5), BalloonType.GREEN));
+            }
+            if (event.getItem().getType() == Material.ORANGE_DYE) {
+                event.setCancelled(true);
+                Bukkit.getPluginManager().callEvent(new BalloonSpawnEvent(event.getClickedBlock().getLocation().clone().add(0.5,1,0.5), BalloonType.ORANGE));
+            }
+            if (event.getItem().getType() == Material.CLAY_BALL) {
+                event.setCancelled(true);
+                Bukkit.getPluginManager().callEvent(new BalloonSpawnEvent(event.getClickedBlock().getLocation().clone().add(0.5,1,0.5), BalloonType.CERAMIC));
             }
         }
     }
