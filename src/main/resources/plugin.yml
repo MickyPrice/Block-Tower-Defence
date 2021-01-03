@@ -4,8 +4,16 @@ main: me.mickydoesmc.btd.blocktowerdefense.BlockTowerDefense
 api-version: 1.13
 prefix: BTD
 authors: [Mickydoesmc]
-description: A Minecraft Minigame based off the Balloons Tower Defense Game
+description: A Minecraft Minigame based off the Balloons Tower Defense Towers
 website: https://michaelprice.co.nz
 commands:
   spawnballoon:
     permission: btd.spawn
+  gamemanager: {}
+  join: {}
+  leave: {}
+  list:
+    aliases: ["who"]
+    permission: btd.admin
+permissions:
+  pb.gamemanager: {}
