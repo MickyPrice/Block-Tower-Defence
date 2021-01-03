@@ -2,6 +2,7 @@ package me.mickydoesmc.btd.blocktowerdefense.Listeners;
 
 import me.mickydoesmc.btd.blocktowerdefense.Balloons.Balloon;
 import me.mickydoesmc.btd.blocktowerdefense.Balloons.BalloonType;
+import me.mickydoesmc.btd.blocktowerdefense.Balloons.BlueBalloon;
 import me.mickydoesmc.btd.blocktowerdefense.Balloons.RedBalloon;
 import me.mickydoesmc.btd.blocktowerdefense.BlockTowerDefense;
 import me.mickydoesmc.btd.blocktowerdefense.Events.BalloonSpawnEvent;
@@ -25,6 +26,12 @@ public class BalloonSpawn implements Listener {
                 balloon.spawn();
                 break;
             }
+            case BLUE: {
+                Balloon balloon = new BlueBalloon();
+                balloon.setLocation(event.getLocation());
+                balloon.spawn();
+                break;
+            }
             default: {
                 Bukkit.broadcastMessage(ChatColor.RED + "BALLOON TYPE " + ChatColor.DARK_RED + event.getType().toString() + ChatColor.RED + " NOT ADDED YET");
                 break;
@@ -35,9 +42,13 @@ public class BalloonSpawn implements Listener {
     @EventHandler
     public void placeBalloon(PlayerInteractEvent event) {
         if (event.getItem() != null & event.getClickedBlock() != null) {
-            if (event.getItem().getType() == Material.MAGMA_CREAM) {
+            if (event.getItem().getType() == Material.RED_DYE) {
                 event.setCancelled(true);
                 Bukkit.getPluginManager().callEvent(new BalloonSpawnEvent(event.getClickedBlock().getLocation().clone().add(0.5,1,0.5), BalloonType.RED));
+            }
+            if (event.getItem().getType() == Material.BLUE_DYE) {
+                event.setCancelled(true);
+                Bukkit.getPluginManager().callEvent(new BalloonSpawnEvent(event.getClickedBlock().getLocation().clone().add(0.5,1,0.5), BalloonType.BLUE));
             }
         }
     }

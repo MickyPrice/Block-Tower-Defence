@@ -14,10 +14,11 @@ public class Balloon {
     private Material material;
     private int maxHealth;
     private int health;
-    private Balloon childBalloon;
+    private BalloonType childBalloon;
     private ArmorStand balloonEntity;
     private Location location;
     private BalloonType type;
+    private int movementSpeed;
 
 
     public Material getMaterial() {
@@ -44,11 +45,11 @@ public class Balloon {
         this.health = health;
     }
 
-    public Balloon getChildBalloon() {
+    public BalloonType getChildBalloon() {
         return childBalloon;
     }
 
-    void setChildBalloon(Balloon childBalloon) {
+    void setChildBalloon(BalloonType childBalloon) {
         this.childBalloon = childBalloon;
     }
 
@@ -62,9 +63,9 @@ public class Balloon {
 
     public void popBalloon() {
         if (getChildBalloon() != null) {
-            getChildBalloon().spawn(getLocation());
-            BlockTowerDefense.getBalloons().remove(this);
+            BalloonUtils.spawnBalloonBasedOffType(getChildBalloon(), getLocation());
         }
+        BlockTowerDefense.getBalloons().remove(this);
     }
 
 
@@ -75,7 +76,7 @@ public class Balloon {
         entity.setSmall(false);
         entity.setGravity(false);
         entity.setArms(false);
-        entity.setMarker(true);
+        entity.setMarker(false);
         entity.setCanMove(false);
         entity.setCanTick(false);
         entity.setInvisible(true);
@@ -90,7 +91,7 @@ public class Balloon {
         entity.setSmall(false);
         entity.setGravity(false);
         entity.setArms(false);
-        entity.setMarker(true);
+        entity.setMarker(false);
         entity.setCanMove(false);
         entity.setCanTick(false);
         entity.setInvisible(true);
@@ -116,6 +117,14 @@ public class Balloon {
 
     void setType(BalloonType type) {
         this.type = type;
+    }
+
+    public int getMovementSpeed() {
+        return movementSpeed;
+    }
+
+    void setMovementSpeed(int movementSpeed) {
+        this.movementSpeed = movementSpeed;
     }
 }
 

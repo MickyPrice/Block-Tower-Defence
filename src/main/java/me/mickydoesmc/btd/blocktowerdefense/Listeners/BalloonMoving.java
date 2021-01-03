@@ -26,9 +26,11 @@ public class BalloonMoving implements Listener {
 
         for (Balloon balloon : BlockTowerDefense.getBalloons()) {
             Block directionBlockForBalloon = balloon.getLocation().getWorld().getBlockAt(balloon.getLocation().clone().subtract(0,1,0));
-            if( directionBlockForBalloon.getType() == Material.PISTON ) {
-                Vector direction = ((Directional) directionBlockForBalloon.getBlockData()).getFacing().getDirection();
-                moveBalloon(balloon, direction);
+            if(directionBlockForBalloon.getType() == Material.PISTON ) {
+                if (event.getTicksPassed() % balloon.getMovementSpeed() == 0) {
+                    Vector direction = ((Directional) directionBlockForBalloon.getBlockData()).getFacing().getDirection();
+                    moveBalloon(balloon, direction);
+                }
             } else if (directionBlockForBalloon.getType() == Material.GOLD_BLOCK) {
                 Bukkit.broadcastMessage(ChatColor.RED + "Balloon has gotten through");
                 toRemove.add(balloon);
@@ -45,7 +47,13 @@ public class BalloonMoving implements Listener {
 
     @EventHandler
     public void onBalloonDeath(EntityDeathEvent event) {
-        BlockTowerDefense.getBalloons().remove(event.getEntity());
+        for ( Balloon balloon : BlockTowerDefense.getBalloons() ) {
+            if (balloon.getBalloonEntity() != null) {
+                if (balloon.getBalloonEntity() == event.getEntity()) {
+                    balloon.popBalloon();
+                }
+            }
+        }
     }
 
     private static void moveBalloon(Balloon balloon, Vector direction) {

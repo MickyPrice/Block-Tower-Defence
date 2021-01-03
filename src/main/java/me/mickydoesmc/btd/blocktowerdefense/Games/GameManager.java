@@ -1,6 +1,7 @@
 package me.mickydoesmc.btd.blocktowerdefense.Games;
 
 import me.mickydoesmc.btd.blocktowerdefense.BlockTowerDefense;
+import me.mickydoesmc.btd.blocktowerdefense.Gameplay.Lobby.Lobby;
 import me.mickydoesmc.btd.blocktowerdefense.Games.Game.Game;
 import me.mickydoesmc.btd.blocktowerdefense.Games.Game.Map;
 import me.mickydoesmc.btd.blocktowerdefense.Games.Game.Mode;
@@ -47,7 +48,7 @@ public class GameManager implements Listener {
             for (Player player : playerGameMap.keySet()) {
                 if (playerGameMap.get(player) == game) {
                     player.setGameMode(GameMode.CREATIVE);
-//                    Lobby.equip(player);
+                    Lobby.equip(player);
                     updateWhoCanSeeWho(player);
                     playersToRemove.add(player);
                 }

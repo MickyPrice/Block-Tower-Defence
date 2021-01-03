@@ -9,5 +9,6 @@ public class RedBalloon extends Balloon {
         setMaterial(Material.RED_CONCRETE);
         setMaxHealth(1);
         setType(BalloonType.RED);
+        setMovementSpeed(10);
     }
 }
