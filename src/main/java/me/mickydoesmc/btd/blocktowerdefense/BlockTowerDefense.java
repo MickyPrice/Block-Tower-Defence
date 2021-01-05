@@ -6,6 +6,8 @@ import me.mickydoesmc.btd.blocktowerdefense.Commands.LeaveCommand;
 import me.mickydoesmc.btd.blocktowerdefense.Commands.ListCommand;
 import me.mickydoesmc.btd.blocktowerdefense.Commands.SpawnBalloonCommand;
 import me.mickydoesmc.btd.blocktowerdefense.Events.BTDTickEvent;
+import me.mickydoesmc.btd.blocktowerdefense.Gameplay.Lobby.GameJoiningInterface;
+import me.mickydoesmc.btd.blocktowerdefense.Gameplay.Lobby.Lobby;
 import me.mickydoesmc.btd.blocktowerdefense.Games.Game.Game;
 import me.mickydoesmc.btd.blocktowerdefense.Games.GameManager;
 import me.mickydoesmc.btd.blocktowerdefense.Listeners.TowerPlacement;
@@ -81,8 +83,8 @@ public final class BlockTowerDefense extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new GeneralListeners(), this);
 
         Bukkit.getPluginManager().registerEvents(new GameManager(), this);
-//        Bukkit.getPluginManager().registerEvents(new Lobby(), this);
-//        Bukkit.getPluginManager().registerEvents(new GameJoiningInterface(), this);
+        Bukkit.getPluginManager().registerEvents(new Lobby(), this);
+        Bukkit.getPluginManager().registerEvents(new GameJoiningInterface(), this);
 //        Bukkit.getPluginManager().registerEvents(new GameLobbyListeners(), this);
 //        Bukkit.getPluginManager().registerEvents(new GameFunctionListeners(), this);
 

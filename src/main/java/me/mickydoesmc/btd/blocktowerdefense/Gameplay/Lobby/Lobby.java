@@ -65,17 +65,6 @@ public class Lobby implements Listener {
 
         player.getInventory().addItem(ITEM_JOIN);
 
-        final ItemStack ITEM_CLASSES = new ItemStack(Material.BOOK, 1);
-        final ItemMeta ITEM_CLASSES_META = ITEM_CLASSES.getItemMeta();
-        ITEM_CLASSES_META.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&e&lClasses &7(Right Click)"));
-        ITEM_CLASSES_META.setLore(Arrays.asList(
-                ChatColor.translateAlternateColorCodes('&',""),
-                ChatColor.translateAlternateColorCodes('&',"&7View classes you can play as")
-        ));
-        ITEM_CLASSES.setItemMeta(ITEM_CLASSES_META);
-
-        player.getInventory().addItem(ITEM_CLASSES);
-
         final ItemStack ITEM_SHOP = new ItemStack(Material.GOLD_INGOT, 1);
         final ItemMeta ITEM_SHOP_META = ITEM_SHOP.getItemMeta();
         ITEM_SHOP_META.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&6&lShop &7(Right Click)"));
