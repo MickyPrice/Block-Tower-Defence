@@ -47,12 +47,16 @@ public class BalloonMoving implements Listener {
 
     @EventHandler
     public void onBalloonDeath(EntityDeathEvent event) {
+        ArrayList<Balloon> toRemove = new ArrayList<>();
         for ( Balloon balloon : BlockTowerDefense.getBalloons() ) {
             if (balloon.getBalloonEntity() != null) {
                 if (balloon.getBalloonEntity() == event.getEntity()) {
-                    balloon.popBalloon();
+                    toRemove.add(balloon);
                 }
             }
+        }
+        for (Balloon balloon : toRemove) {
+            balloon.popBalloon();
         }
     }
 

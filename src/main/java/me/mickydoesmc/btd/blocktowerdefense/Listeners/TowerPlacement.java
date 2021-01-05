@@ -1,51 +1,66 @@
 package me.mickydoesmc.btd.blocktowerdefense.Listeners;
 
 import me.mickydoesmc.btd.blocktowerdefense.BlockTowerDefense;
+import me.mickydoesmc.btd.blocktowerdefense.Towers.Tower;
+import me.mickydoesmc.btd.blocktowerdefense.Towers.TowerMenu.TowerMenu;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
 public class TowerPlacement implements Listener {
+
     @EventHandler
-    public void onTowerPlace(BlockPlaceEvent event) {
-        if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
-            Location location = event.getBlock().getLocation().add(0.5,0,0.5);
-            switch (event.getBlock().getType()) {
-                case DIORITE:
-                    event.setCancelled(true);
-                    event.getPlayer().getInventory().setItemInMainHand(null);
-                    spawnTower(TOWERTYPE.Skeleton, location);
-                    break;
-                default:
-                    event.setCancelled(true);
-                    event.getPlayer().sendMessage(ChatColor.RED + "That is not a valid tower");
-            }
-        }
-
-    }
-
-
-    private static String spawnTower(TOWERTYPE tower, Location location) {
-        switch (tower) {
-            case Skeleton: {
-                me.mickydoesmc.btd.blocktowerdefense.Towers.Skeleton spawnedTower = new me.mickydoesmc.btd.blocktowerdefense.Towers.Skeleton();
-
-                spawnedTower.setLocation(location);
-                spawnedTower.spawnTower();
-
-                BlockTowerDefense.getTowers().add(spawnedTower);
-                return null;
-            }
-            default: {
-                return "Tower has not been implemented yet";
+    public void debugTower(PlayerInteractEvent event) {
+        if(event.getItem() != null) {
+            if(event.getItem().getType() == Material.BRICK) {
+                TowerMenu.showTowerMenu(event.getPlayer());
             }
         }
     }
+
+
+//    @EventHandler
+//    public void onTowerPlace(BlockPlaceEvent event) {
+//        if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+//            Location location = event.getBlock().getLocation().add(0.5,0,0.5);
+//            switch (event.getBlock().getType()) {
+//                case DIORITE:
+//                    event.setCancelled(true);
+//                    event.getPlayer().getInventory().setItemInMainHand(null);
+//                    spawnTower(TOWERTYPE.Skeleton, location);
+//                    break;
+//                default:
+//                    event.setCancelled(true);
+//                    event.getPlayer().sendMessage(ChatColor.RED + "That is not a valid tower");
+//            }
+//        }
+//
+//    }
+
+
+//    private static String spawnTower(TOWERTYPE tower, Location location) {
+//        switch (tower) {
+//            case Skeleton: {
+//                me.mickydoesmc.btd.blocktowerdefense.Towers.Skeleton spawnedTower = new me.mickydoesmc.btd.blocktowerdefense.Towers.Skeleton();
+//
+//                spawnedTower.setLocation(location);
+//                spawnedTower.spawnTower();
+//
+//                BlockTowerDefense.getTowers().add(spawnedTower);
+//                return null;
+//            }
+//            default: {
+//                return "Tower has not been implemented yet";
+//            }
+//        }
+//    }
 
 //    @EventHandler
 //    public void BTDTick(BTDTickEvent event) {

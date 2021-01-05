@@ -7,14 +7,12 @@ me/mickydoesmc/btd/blocktowerdefense/Games/Game/State.class
 me/mickydoesmc/btd/blocktowerdefense/Games/GameEvents/PlayerJoinGameEvent.class
 me/mickydoesmc/btd/blocktowerdefense/Utils/Titles.class
 me/mickydoesmc/btd/blocktowerdefense/Games/GameEvents/PlayerLeaveGameEvent.class
-me/mickydoesmc/btd/blocktowerdefense/Towers/TowerUtils.class
-me/mickydoesmc/btd/blocktowerdefense/Towers/Spawnable.class
 me/mickydoesmc/btd/blocktowerdefense/Utils/WorldManager.class
+me/mickydoesmc/btd/blocktowerdefense/Towers/AttackType.class
 me/mickydoesmc/btd/blocktowerdefense/Games/Game/Game.class
 me/mickydoesmc/btd/blocktowerdefense/Gameplay/Lobby/GameJoiningInterface$2.class
 me/mickydoesmc/btd/blocktowerdefense/Listeners/BalloonMoving.class
 me/mickydoesmc/btd/blocktowerdefense/Balloons/BlueBalloon.class
-me/mickydoesmc/btd/blocktowerdefense/Towers/Skeleton$1.class
 me/mickydoesmc/btd/blocktowerdefense/Commands/LeaveCommand.class
 me/mickydoesmc/btd/blocktowerdefense/Balloons/Balloon.class
 me/mickydoesmc/btd/blocktowerdefense/Balloons/CeramicBalloon.class
@@ -24,6 +22,7 @@ me/mickydoesmc/btd/blocktowerdefense/Listeners/GeneralListeners.class
 me/mickydoesmc/btd/blocktowerdefense/BlockTowerDefense.class
 me/mickydoesmc/btd/blocktowerdefense/Gameplay/Lobby/GameJoiningInterface$1.class
 me/mickydoesmc/btd/blocktowerdefense/Games/GameEvents/GameCreatedEvent.class
+me/mickydoesmc/btd/blocktowerdefense/Towers/Towers.class
 me/mickydoesmc/btd/blocktowerdefense/Balloons/BalloonUtils.class
 me/mickydoesmc/btd/blocktowerdefense/Gameplay/Lobby/GameJoiningInterface.class
 me/mickydoesmc/btd/blocktowerdefense/Gameplay/Lobby/Lobby.class
@@ -31,10 +30,11 @@ me/mickydoesmc/btd/blocktowerdefense/Commands/GameManager.class
 me/mickydoesmc/btd/blocktowerdefense/Utils/Chat.class
 me/mickydoesmc/btd/blocktowerdefense/Balloons/GreenBalloon.class
 me/mickydoesmc/btd/blocktowerdefense/Games/Game/Map.class
+me/mickydoesmc/btd/blocktowerdefense/Towers/TowerMenu/TowerMenu.class
 me/mickydoesmc/btd/blocktowerdefense/Utils/YamlConfig.class
-me/mickydoesmc/btd/blocktowerdefense/Towers/Skeleton.class
 me/mickydoesmc/btd/blocktowerdefense/Listeners/TOWERTYPE.class
 me/mickydoesmc/btd/blocktowerdefense/Utils/Sounds.class
+me/mickydoesmc/btd/blocktowerdefense/Towers/TowerMenu/TowerMenuIcon.class
 me/mickydoesmc/btd/blocktowerdefense/Games/GameManager.class
 me/mickydoesmc/btd/blocktowerdefense/Balloons/BalloonUtils$1.class
 me/mickydoesmc/btd/blocktowerdefense/Events/BalloonSpawnEvent.class
@@ -50,4 +50,3 @@ me/mickydoesmc/btd/blocktowerdefense/Gameplay/Lobby/GameJoiningInterface$3.class
 me/mickydoesmc/btd/blocktowerdefense/BlockTowerDefense$1.class
 me/mickydoesmc/btd/blocktowerdefense/Balloons/RedBalloon.class
 me/mickydoesmc/btd/blocktowerdefense/Utils/ActionBar$1.class
-me/mickydoesmc/btd/blocktowerdefense/Listeners/TowerPlacement$1.class

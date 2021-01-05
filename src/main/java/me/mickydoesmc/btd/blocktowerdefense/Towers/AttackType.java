@@ -1,7 +1,6 @@
 package me.mickydoesmc.btd.blocktowerdefense.Towers;
 
-public class TowerUtils {
-
-
-
+public enum AttackType {
+    Dart,
+    Snowball
 }

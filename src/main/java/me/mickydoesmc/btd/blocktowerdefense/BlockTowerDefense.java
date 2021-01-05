@@ -13,10 +13,10 @@ import me.mickydoesmc.btd.blocktowerdefense.Listeners.BalloonMoving;
 import me.mickydoesmc.btd.blocktowerdefense.Listeners.BalloonSpawn;
 import me.mickydoesmc.btd.blocktowerdefense.Listeners.GeneralListeners;
 import me.mickydoesmc.btd.blocktowerdefense.Towers.Tower;
+import me.mickydoesmc.btd.blocktowerdefense.Towers.Towers;
 import me.mickydoesmc.btd.blocktowerdefense.Utils.WorldManager;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -34,11 +34,11 @@ public final class BlockTowerDefense extends JavaPlugin {
         return balloons;
     }
 
-    private static ArrayList<Tower> towers = new ArrayList<>();
+//    private static ArrayList<Tower> towers = new ArrayList<>();
 
-    public static ArrayList<Tower> getTowers() {
-        return towers;
-    }
+//    public static ArrayList<Tower> getTowers() {
+//        return towers;
+//    }
 
 
     private static BlockTowerDefense instance;
@@ -86,7 +86,8 @@ public final class BlockTowerDefense extends JavaPlugin {
 //        Bukkit.getPluginManager().registerEvents(new GameLobbyListeners(), this);
 //        Bukkit.getPluginManager().registerEvents(new GameFunctionListeners(), this);
 
-
+//        Initialise towers
+        Towers.init();
     }
 
     @Override
@@ -98,9 +99,9 @@ public final class BlockTowerDefense extends JavaPlugin {
         for (Balloon balloon : getBalloons()) {
             balloon.getBalloonEntity().remove();
         }
-        for (Tower tower : getTowers()) {
-            tower.getEntity().remove();
-        }
+//        for (Tower tower : getTowers()) {
+//            tower.getEntity().remove();
+//        }
 
 
         for (Game game : GameManager.getGames()) {
